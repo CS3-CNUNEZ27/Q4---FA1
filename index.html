@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head></head>
+	<body>
+		<div>
+			<h1 style="font-size: 20px; font-family: Arial, Helvetica, sans-serif;">SIGN UP </h1>
+			<form onsubmit="return accountStuff()">
+				<label for="name">NAME:</label></br>
+				<input type="text" id="name1" size="30" name="name" required></input></br>
+				<label for="username">USERNAME:</label></br>
+				<input type="text" id="username1" size="30" name="username" required></input></br>
+				<label for="password">PASSWORD:</label></br>
+				<input type="password" id="pass1" size="30" name="password" required></input></br>
+				<label for="passconfirm">CONFIRM PASSWORD:</label></br>
+				<input type="password" id="passconfirm1" size="30" name="passconfirm" required></input></br>
+				<label for="email" >EMAIL:</label></br>
+				<input type="email" id="email1" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" name="email" size="30" required /></input><br>
+				<label for="address" >ADDRESS:</label></br>
+				<input type="text" id="address1" name="address" size="30" required /></input><br><br>
+				<label for="interest" >SHORT PARAGRAPH OF INTERESTS: </label></br>
+				<textarea id="interests1" name="interest" rows="4" cols="50" required></textarea><br>
+				<input type="submit" value="Submit" id="button1"></input>
+				<input type="reset" value="Reset"></input>
+			</form>
+			<p class="passFail" id="failedPass"></p>
+		</div>
+	</body>
+	<script>
+		function accountStuff(){
+			let name = name1.value;
+			let username = username1.value;
+			let password = pass1.value;
+			let passConfirm = passconfirm1.value;
+			let email = email1.value;
+			let interests = interests1.value;
+			if (passConfirm != password){
+				failedPass.innerHTML = "* Password should be the same!";
+				return false;
+			}
+			else{
+				failedPass.innerHTML = " ";
+				return true;
+			}
+		}
+	</script>
+	<style>
+		input{
+			margin-bottom: 5px;
+		}
+		body{
+			background-image: url("blue.jpg");
+			background-repeat: no-repeat;
+			background-size: 120%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 90vh; 
+            margin: 0;
+		}
+		div{
+			background-color: white;
+			border-radius: 25px;
+			border: solid black 2px;
+			width: 450px;
+			height: 502px;
+			padding-left: 50px;
+			padding-top: 10px;
+			box-shadow: 10px 10px;
+			font-family: "Lucida Console", "Courier New", monospace;
+		}
+		#failedPass{
+			color: red;
+			margin-top: 10px;
+		}
+		#button1{
+			margin-top:10px;
+		}
+	</style>
+</html>	
